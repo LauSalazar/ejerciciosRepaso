@@ -10,7 +10,7 @@ public class UnitTest {
 
     @Test //Así se le dice que este método es un unit test
     //De click derecho -> Run as -> JUnit test 
-    public void TestSomething(){
+    public void SumaDiagonalesTest(){
      
         int [][] matrix = {{1,0,0},{0,1,0},{0,0,1}}; //la matriz de identidad
         
