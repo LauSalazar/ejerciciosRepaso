@@ -234,7 +234,7 @@ public class Funciones {
 	 * @param n Define el tamaño de la matriz cuadrada
 	 * @return Matriz con elementos de un triangulo de pascal
 	 */
-	public int[][] matrizPascal(int n){
+	public static int[][] matrizPascal(int n){
 		int[][] matriz = new int[n][n];
 		for(int i=0; i<n;i++){
 			for(int j=0;j<n;j++){
@@ -254,7 +254,7 @@ public class Funciones {
 	 * @param n
 	 * @return Suma de los datos
 	 */
-	public int sumaDiagonales(int[][] matriz, int n){
+	public static int sumaDiagonales(int[][] matriz, int n){ //Lo puse estatico porque no quería declarar un objeto de tipo Funciones...
 		int suma=0;
 		for(int i =0; i<n; i++){
 			suma= suma + matriz[i][i]+matriz[i][n-1-i];
