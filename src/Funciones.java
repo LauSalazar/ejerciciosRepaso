@@ -207,7 +207,7 @@ public class Funciones {
 	 * @param cabeza2 Nodo que apunta al primer elemento de la otra listas
 	 * @return Nodo que apunta al primer elemento de la lista con los elementos repetidos en ambas listas
 	 */
-	public Nodo repetidos2(Nodo cabeza1, Nodo cabeza2) {
+	public static Nodo repetidos2(Nodo cabeza1, Nodo cabeza2) {
 		if (cabeza1 == null || cabeza2 == null)
 			return null;
 
