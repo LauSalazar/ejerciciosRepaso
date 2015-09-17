@@ -2,6 +2,8 @@
 
 
 
+import java.util.Stack;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -49,4 +51,42 @@ public class UnitTest {
          
          Assert.assertNull(cabezaRes.getSiguiente().getSiguiente()); //y solo debería tener un elemento
      }
+     
+     
+     /*
+      * Principios del TDD (Test driven development) Desarrollo orientado a pruebas
+      *  Se dice que en el TDD lo primero que se debe hacer es escribir una prueba que falle
+      *  TODO:1. Descomentar esta prueba
+      *  TODO:2. Agregar las referencias a Stack
+      *  TODO: 3. Correr la prueba 'sortStack' debería fallar? Por qué?
+      *  TODO: 4. Agregar lo que falte ( StacksAndQueue class y el método sort)
+      *  TODO: 5. El segundo paso es escribir lo minimo de código para que la prueba pase. Este pedazo de codigo le sirve
+           public static Stack<Integer> sort(Stack<Integer> stack){
+                 Stack<Integer> s = new Stack<Integer>();
+                 s.push(1);
+                 s.push(2);
+                 s.push(3);
+                 s.push(4);
+                 return s;
+           }
+          TODO: 6. El 3 paso en el TDD es el refactor, osea modificar el código fuente de ese método de ordenamiento sin alterar 
+                   el resultado para que funcione con cualquier caso.  
+           TODO: 7 Lea sobre TDD.
+      * */
+
+
+//     @Test
+//     public void sortStack(){
+//         Stack<Integer> stack = new Stack<Integer>();
+//         stack.push(4);
+//         stack.push(3);
+//         stack.push(2);
+//         stack.push(1);
+//         stack = StacksAndQueue.sort(stack);
+//         Assert.assertEquals(4, stack.size());
+//         Assert.assertEquals(4, (int)stack.pop());
+//         Assert.assertEquals(3, (int)stack.pop());
+//         Assert.assertEquals(2, (int)stack.pop());
+//         Assert.assertEquals(1, (int)stack.pop());
+//     }
 }
