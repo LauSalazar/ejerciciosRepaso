@@ -303,4 +303,14 @@ public class Funciones {
 			
 		return suma;
 	}
+	
+	public static int sumaDiagonales2(int [][]matrix){
+	    int suma = 0;
+	    int n = matrix.length;
+        for(int i = 0; i < n; i++){
+	        suma += matrix[i][i] + matrix[i][n-i-1];
+	    }
+	    suma -= matrix[n/2][n/2];
+	    return suma;
+	}
 }

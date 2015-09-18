@@ -60,6 +60,26 @@ public class UnitTest {
 		matrizResultado = Funciones.matrizPascal(0);
 		Assert.assertArrayEquals(matriz4, matrizResultado);
 	}
+	
+	
+
+    @Test
+    public void SumaDiagonalesTest2() {
+        //Usted se deja confundir muy fácil... Su algoritmo estaba bueno sólo faltaba
+        // que le restara el medio a la suma para que no lo sumara dos veces...
+
+        int[][] matrix = { { 1, 0, 0 }, { 0, 1, 0 }, { 0, 0, 1 } }; 
+
+        int resultado = Funciones.sumaDiagonales2(matrix);
+
+        Assert.assertEquals(3, resultado); 
+        int[][] matrix2 = { { 1, 0, 1 }, { 0, 1, 0 }, { 1, 0, 1 } };
+
+        resultado = Funciones.sumaDiagonales2(matrix2);
+
+        Assert.assertEquals(5, resultado);
+    }
+	
 
 	@Test
 	public void repetidoListaLigadaTest() {
