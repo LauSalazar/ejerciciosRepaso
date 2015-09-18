@@ -231,7 +231,7 @@ public class Funciones {
 	 * @param cabeza1
 	 *            Nodo que apunta al primer elemento de una de las listas
 	 * @param cabeza2
-	 *            Nodo que apunta al primer elemento de la otra listas
+	 *            Nodo que apunta al primer elemento de la otra lista
 	 * @return Nodo que apunta al primer elemento de la lista con los elementos
 	 *         repetidos en ambas listas
 	 */
@@ -247,10 +247,13 @@ public class Funciones {
 		HashSet<Integer> aux = new HashSet<Integer>();
 		while (nodo1 != null) {
 			aux.add(nodo1.getDato());
+			nodo1=nodo1.getSiguiente();
 		}
 		while (nodo2 != null) {
-			if (aux.contains(nodo2.getDato()))
-				listaNueva.agregarNodo(nodo2);
+			if (aux.contains(nodo2.getDato())){
+				listaNueva.agregarNodo(nodo2);				
+			}	
+			nodo2=nodo2.getSiguiente();
 		}
 		Nodo nodoApuntador = new Nodo();
 		nodoApuntador.setSiguiente(listaNueva.getPrimero());
