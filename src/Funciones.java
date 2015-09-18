@@ -310,7 +310,7 @@ public class Funciones {
         for(int i = 0; i < n; i++){
 	        suma += matrix[i][i] + matrix[i][n-i-1];
 	    }
-	    suma -= matrix[n/2][n/2];
+	    suma -= n % 2 != 0 ? matrix[n/2][n/2]: 0;
 	    return suma;
 	}
 }
