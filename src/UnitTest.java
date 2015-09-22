@@ -115,4 +115,27 @@ public class UnitTest {
 		Assert.assertEquals(0, Funciones.bitsEnUno(0));
 		Assert.assertEquals(3, Funciones.bitsEnUno(7));
 	}
+	
+	@Test
+	public void matrizEnEspiral(){
+		int[] array0 = {};
+		int[][] matriz0 = {{}};
+		Assert.assertArrayEquals(array0, Funciones.espiral(matriz0));
+		
+		int[] array1 = {1};
+		int[][] matriz1 = {{1}};
+		Assert.assertArrayEquals(array1, Funciones.espiral(matriz1));
+		
+		int[] array = {1,2,3,6,9,8,7,4,5};
+		int[][] matriz = {{1,2,3},{4,5,6},{7,8,9}};
+		Assert.assertArrayEquals(array, Funciones.espiral(matriz));
+		
+		int[] array2 = {1,2,5,8,7,4};
+		int[][] matriz2 = {{1,2},{4,5},{7,8}};
+		Assert.assertArrayEquals(array2, Funciones.espiral(matriz2));
+		
+		int[] array3 = {1,2,3,4,8,16,11,10,9,5,6,7};
+		int[][] matriz3 = {{1,2,3,4},{5,6,7,8},{9,10,11,16}};
+		Assert.assertArrayEquals(array3, Funciones.espiral(matriz3));
+	}
 }

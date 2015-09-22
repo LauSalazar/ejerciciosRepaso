@@ -247,13 +247,13 @@ public class Funciones {
 		HashSet<Integer> aux = new HashSet<Integer>();
 		while (nodo1 != null) {
 			aux.add(nodo1.getDato());
-			nodo1=nodo1.getSiguiente();
+			nodo1 = nodo1.getSiguiente();
 		}
 		while (nodo2 != null) {
-			if (aux.contains(nodo2.getDato())){
-				listaNueva.agregarNodo(nodo2);				
-			}	
-			nodo2=nodo2.getSiguiente();
+			if (aux.contains(nodo2.getDato())) {
+				listaNueva.agregarNodo(nodo2);
+			}
+			nodo2 = nodo2.getSiguiente();
 		}
 		Nodo nodoApuntador = new Nodo();
 		nodoApuntador.setSiguiente(listaNueva.getPrimero());
@@ -284,52 +284,122 @@ public class Funciones {
 	}
 
 	/**
-	 * Suma los datos de las diagonales principal y secundaria de una matriz cuadrada
+	 * Suma los datos de las diagonales principal y secundaria de una matriz
+	 * cuadrada
+	 * 
 	 * @param matriz
-	 * @param n Tamaño de la matriz (nxn)
+	 * @param n
+	 *            Tamaño de la matriz (nxn)
 	 * @return Suma de los datos
 	 */
-	public static int sumaDiagonales(int[][] matriz, int n){ //Lo puse estatico porque no quería declarar un objeto de tipo Funciones...
-		int suma=0;
-		int medio = n/2;
-		for(int i =0; i<n; i++){
-			if(n%2==0){
-				suma= suma + matriz[i][i]+matriz[i][n-1-i];
+	public static int sumaDiagonales(int[][] matriz, int n) { // Lo puse
+																// estatico
+																// porque no
+																// quería
+																// declarar un
+																// objeto de
+																// tipo
+																// Funciones...
+		int suma = 0;
+		int medio = n / 2;
+		for (int i = 0; i < n; i++) {
+			if (n % 2 == 0) {
+				suma = suma + matriz[i][i] + matriz[i][n - 1 - i];
+			} else if (i == medio) {
+				suma = suma + matriz[i][i];
+			} else {
+				suma = suma + matriz[i][i] + matriz[i][n - 1 - i];
 			}
-			else if(i==medio){
-				suma= suma + matriz[i][i];
-				}
-			else{
-				suma= suma + matriz[i][i]+matriz[i][n-1-i];
-				}
-			}
-			
+		}
+
 		return suma;
 	}
-	
-	public static int sumaDiagonales2(int [][]matrix){
-	    int suma = 0;
-	    int n = matrix.length;
-        for(int i = 0; i < n; i++){
-	        suma += matrix[i][i] + matrix[i][n-i-1];
-	    }
-	    suma -= n % 2 != 0 ? matrix[n/2][n/2]: 0;
-	    return suma;
+
+	public static int sumaDiagonales2(int[][] matrix) {
+		int suma = 0;
+		int n = matrix.length;
+		for (int i = 0; i < n; i++) {
+			suma += matrix[i][i] + matrix[i][n - i - 1];
+		}
+		suma -= n % 2 != 0 ? matrix[n / 2][n / 2] : 0;
+		return suma;
 	}
+
 	/**
 	 * Dice el numero de bits en uno de un numero entero
+	 * 
 	 * @param numero
 	 * @return suma de bits en uno
 	 */
-	public static int bitsEnUno(int numero){
-		if(numero <0) numero = absoluto(numero);
+	public static int bitsEnUno(int numero) {
+		if (numero < 0)
+			numero = absoluto(numero);
 		int bits = 0;
 		int resto = 0;
-		while(numero!=0){
-			resto = numero%2;
-			numero = numero/2;
-			if(resto == 1) bits+=1;			
+		while (numero != 0) {
+			resto = numero % 2;
+			numero = numero / 2;
+			if (resto == 1)
+				bits += 1;
 		}
 		return bits;
+	}
+	
+	/**
+	 * Devuelve arreglo con los datos de la matriz leidos en espiral
+	 * @param matriz
+	 * @return 
+	 */
+	public static int[] espiral(int[][] matriz) {
+		int filas = matriz.length;
+		int col = matriz[0].length;
+		int tamanho = col*filas;
+		int[] espiral = new int[tamanho];
+		int limCol = 0, limFila = 0;
+		int k = 0, l = 0;
+		int medioCol = col / 2, medioFila = filas / 2;
+		int i, j;
+		int iEspiral = 0;
+
+		while (k <= medioFila && l <= medioCol) {
+			i = k;
+			j = l;
+			for (; j < col; j++) {
+				espiral[iEspiral] = matriz[i][j];
+				iEspiral += 1;
+			}
+			if(iEspiral == tamanho) break;
+			j -= 1;
+			i += 1;
+			for (; i < filas; i++) {
+				espiral[iEspiral] = matriz[i][j];
+				iEspiral += 1;
+			}
+			if(iEspiral == tamanho) break;
+			i -= 1;
+			j -= 1;
+			for (; j >= limCol; j--) {
+				espiral[iEspiral] = matriz[i][j];
+				iEspiral += 1;
+			}
+			if(iEspiral == tamanho) break;
+			j += 1;
+			i -= 1;
+			for (; i >= limFila; i--) {
+				if (i != j) {
+					espiral[iEspiral] = matriz[i][j];
+					iEspiral += 1;
+				} else
+					break;
+			}
+			if(iEspiral == tamanho) break;
+			limCol += 1;
+			limFila += 1;
+			k += 1;
+			l += 1;
+			filas -= 1;
+			col -= 1;
+		}
+		return espiral;
 	}
 }
