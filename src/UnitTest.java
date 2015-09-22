@@ -137,5 +137,14 @@ public class UnitTest {
 		int[] array3 = {1,2,3,4,8,16,11,10,9,5,6,7};
 		int[][] matriz3 = {{1,2,3,4},{5,6,7,8},{9,10,11,16}};
 		Assert.assertArrayEquals(array3, Funciones.espiral(matriz3));
-	}
+		
+		int [][] matriz4 = {{13,12,11,10,25},
+		                    {14,3,2,9,24},		
+		                    {15,4,1,8,23},
+		                    {16,5,6,7,22},
+		                    {17,18,19,20,21}};
+		
+		int[] array4 = {13,12,11,10,25,24,23,22,21,20,19,18,17,16,15,14,3,2,9,8,7,6,5,4,3,2,1};
+		Assert.assertArrayEquals(array4, Funciones.espiral(matriz4));
+	}  
 }
