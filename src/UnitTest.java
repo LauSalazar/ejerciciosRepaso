@@ -108,4 +108,11 @@ public class UnitTest {
 	 Assert.assertEquals(3, (int)stack.pop());
 	 Assert.assertEquals(4, (int)stack.pop());
 	 }
+	
+	@Test
+	public void bitsEnUno(){
+		Assert.assertEquals(4, Funciones.bitsEnUno(-15));
+		Assert.assertEquals(0, Funciones.bitsEnUno(0));
+		Assert.assertEquals(3, Funciones.bitsEnUno(7));
+	}
 }

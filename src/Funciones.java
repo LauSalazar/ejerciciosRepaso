@@ -29,7 +29,7 @@ public class Funciones {
 	 *            Numero
 	 * @return Valor absoluto de a
 	 */
-	public int absoluto(int a) {
+	public static int absoluto(int a) {
 		if (a >= 0)
 			return a;
 		else
@@ -315,5 +315,21 @@ public class Funciones {
 	    }
 	    suma -= n % 2 != 0 ? matrix[n/2][n/2]: 0;
 	    return suma;
+	}
+	/**
+	 * Dice el numero de bits en uno de un numero entero
+	 * @param numero
+	 * @return suma de bits en uno
+	 */
+	public static int bitsEnUno(int numero){
+		if(numero <0) numero = absoluto(numero);
+		int bits = 0;
+		int resto = 0;
+		while(numero!=0){
+			resto = numero%2;
+			numero = numero/2;
+			if(resto == 1) bits+=1;			
+		}
+		return bits;
 	}
 }
