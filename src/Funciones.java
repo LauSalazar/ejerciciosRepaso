@@ -415,5 +415,35 @@ public class Funciones {
 	public Boolean isOn(int n, int i){
 	    return (n & (1<<i)) != 0;
 	}
+	
+	/**
+	 * Dice si los datos de la lista ligada se leen igual de derecha a izquierda y viceversa
+	 * @param primeroLista Primer nodo de la lista
+	 * @return 
+	 */
+	public boolean esPalindromo(Nodo primeroLista){
+		if (primeroLista==null) return false;
+		if (primeroLista.getSiguiente() == null) return true;
+				
+		ListaLigada aux = new ListaLigada();
+		Nodo nodoP = primeroLista;
+		while(nodoP!=null){
+			Nodo nodoAux = new Nodo(nodoP.getDato());
+			aux.agregarNodo(nodoAux);
+			nodoP=nodoP.getSiguiente();
+		}
+		if (aux.getPrimero().getDato()!=aux.getUltimo().getDato()) return false;
+		else{
+			Nodo nodo = aux.getPrimero().getSiguiente();
+			ListaLigada aux2 = new ListaLigada();
+			while(nodo!=aux.getUltimo()){
+				Nodo nodoAux = new Nodo(nodo.getDato());
+				aux2.agregarNodo(nodoAux);
+				nodo=nodo.getSiguiente();
+			}
+			if(aux2.esVacia()) return true;
+			else return esPalindromo(aux2.getPrimero());			
+		}
+	}
 
 }
