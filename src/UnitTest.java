@@ -195,4 +195,51 @@ public class UnitTest {
 		Assert.assertFalse(funcion.esPalindromo(cabeza6));
 	}
 	
+	@Test
+	public void esPalindromo2Test() {
+		Funciones funcion = new Funciones();	
+		
+		ListaLigada lista = new ListaLigada();
+		lista.agregarNodo(new Nodo(1));
+		lista.agregarNodo(new Nodo(1));
+		Nodo cabeza1 = lista.getPrimero();
+		Assert.assertTrue(funcion.esPalindromo(cabeza1));
+		
+		ListaLigada lista2 = new ListaLigada();
+		lista2.agregarNodo(new Nodo(1));
+		lista2.agregarNodo(new Nodo(2));
+		Nodo cabeza2 = lista2.getPrimero();
+		Assert.assertFalse(funcion.esPalindromo(cabeza2));
+		
+		ListaLigada lista3 = new ListaLigada();
+		lista3.agregarNodo(new Nodo(1));
+		lista3.agregarNodo(new Nodo(2));
+		lista3.agregarNodo(new Nodo(2));
+		Nodo cabeza3 = lista3.getPrimero();
+		Assert.assertFalse(funcion.esPalindromo(cabeza3));
+		
+		ListaLigada lista4 = new ListaLigada();
+		lista4.agregarNodo(new Nodo(1));
+		lista4.agregarNodo(new Nodo(2));
+		lista4.agregarNodo(new Nodo(2));
+		lista4.agregarNodo(new Nodo(1));
+		Nodo cabeza4 = lista4.getPrimero();
+		Assert.assertTrue(funcion.esPalindromo(cabeza4));
+		
+		ListaLigada lista5 = new ListaLigada();
+		Nodo cabeza5=lista5.getPrimero();
+		Assert.assertFalse(funcion.esPalindromo(cabeza5));
+		
+		ListaLigada lista6 = new ListaLigada();
+		lista6.agregarNodo(new Nodo(1));
+		lista6.agregarNodo(new Nodo(2));
+		lista6.agregarNodo(new Nodo(3));
+		lista6.agregarNodo(new Nodo(2));
+		lista6.agregarNodo(new Nodo(3));
+		lista6.agregarNodo(new Nodo(2));
+		lista6.agregarNodo(new Nodo(1));
+		Nodo cabeza6 = lista6.getPrimero();
+		Assert.assertTrue(funcion.esPalindromo(cabeza6));
+	}
+	
 }

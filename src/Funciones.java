@@ -445,5 +445,31 @@ public class Funciones {
 			else return esPalindromo(aux2.getPrimero());			
 		}
 	}
+	
+	public boolean esPalindromo2(Nodo cabeza){
+		if(cabeza ==null) return false;
+		
+		int contador=0;
+		Nodo aux=cabeza;
+		while(aux!=null){
+			contador+=1;
+			aux=aux.getSiguiente();
+		}
+		for (int i=0; i<contador/2;i++){
+			aux = cabeza;
+			int dato1=i;
+			int dato2=contador-1-i;
+			int d1=0;
+			int d2=0;
+			
+			for(int j=0;j<=dato2;j++){
+				if(j==dato1) d1=aux.getDato();
+				if(j==dato2) d2=aux.getDato();
+				aux=aux.getSiguiente();
+			}
+			if(d1!=d2) return false;
+		}
+		return true;
+	}
 
 }
